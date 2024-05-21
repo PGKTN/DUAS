@@ -1,0 +1,14 @@
+C:\DUAS\bin\Debug\net6.0\DUAS.exe
+C:\DUAS\bin\Debug\net6.0\DUAS.deps.json
+C:\DUAS\bin\Debug\net6.0\DUAS.runtimeconfig.json
+C:\DUAS\bin\Debug\net6.0\DUAS.dll
+C:\DUAS\bin\Debug\net6.0\DUAS.pdb
+C:\DUAS\obj\Debug\net6.0\DUAS.GeneratedMSBuildEditorConfig.editorconfig
+C:\DUAS\obj\Debug\net6.0\DUAS.AssemblyInfoInputs.cache
+C:\DUAS\obj\Debug\net6.0\DUAS.AssemblyInfo.cs
+C:\DUAS\obj\Debug\net6.0\DUAS.csproj.CoreCompileInputs.cache
+C:\DUAS\obj\Debug\net6.0\DUAS.dll
+C:\DUAS\obj\Debug\net6.0\refint\DUAS.dll
+C:\DUAS\obj\Debug\net6.0\DUAS.pdb
+C:\DUAS\obj\Debug\net6.0\DUAS.genruntimeconfig.cache
+C:\DUAS\obj\Debug\net6.0\ref\DUAS.dll
