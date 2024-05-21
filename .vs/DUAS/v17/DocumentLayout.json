@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\DUAS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|c:\\duas\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|c:\\duas\\ini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|solutionrelative:ini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ini.cs",
+              "DocumentMoniker": "C:\\DUAS\\Ini.cs",
+              "RelativeDocumentMoniker": "Ini.cs",
+              "ToolTip": "C:\\DUAS\\Ini.cs",
+              "RelativeToolTip": "Ini.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAsAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T17:12:43.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cs",
+              "DocumentMoniker": "C:\\DUAS\\main.cs",
+              "RelativeDocumentMoniker": "main.cs",
+              "ToolTip": "C:\\DUAS\\main.cs",
+              "RelativeToolTip": "main.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAwwGcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T15:21:44.381Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

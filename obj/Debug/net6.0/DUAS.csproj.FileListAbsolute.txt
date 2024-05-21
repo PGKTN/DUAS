@@ -12,3 +12,4 @@ C:\DUAS\obj\Debug\net6.0\refint\DUAS.dll
 C:\DUAS\obj\Debug\net6.0\DUAS.pdb
 C:\DUAS\obj\Debug\net6.0\DUAS.genruntimeconfig.cache
 C:\DUAS\obj\Debug\net6.0\ref\DUAS.dll
+C:\DUAS\obj\Debug\net6.0\DUAS.sourcelink.json
