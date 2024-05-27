@@ -28,12 +28,9 @@ namespace DUAS
             double rho_0 = 1.225;
             double g = 9.81;
 
-            double W_pilot = 80;
-            double W_fixed_payload = 0.0;
-            double W_battery = 0.0;
-            double W_empty = 0.0;
-            double W_0 = W_pilot + W_fixed_payload + W_battery + W_empty;
-            W_0 = 2100;
+            double W_empty = 1600;
+            double W_payload = 500;
+            double W_0 = W_empty + W_payload;
 
             double N_rotor = 4;
             double rotor_diameter = 3;
@@ -43,7 +40,7 @@ namespace DUAS
             double omega = rpm * (2 * Math.PI) / 60
 ;
             double Cd0 = 0.03360;
-            double S_ref = 97.931721;
+            double S_ref = 97.931721; // [m²]
 
 
 
@@ -66,7 +63,7 @@ namespace DUAS
 
             double P_req_hover = P_i_hover + P_0_hover;
 
-            double E_hover = P_req_hover * t_hover;
+            double E_hover = P_req_hover * (t_hover/3600);
 
             ///////////////
             /// P_climb ///
@@ -86,7 +83,7 @@ namespace DUAS
 
             double P_req_climb = P_i_climb + P_0_climb;
 
-            double E_climb = P_req_climb * t_climb;
+            double E_climb = P_req_climb * (t_climb/3600);
 
 
             /////////////////
@@ -102,7 +99,16 @@ namespace DUAS
 
             double P_req_forward = D_forward * v_forward;
 
-            double E_forward = P_req_forward * t_forward;
+            double E_forward = P_req_forward * (t_forward/3600);
+
+            double Cl_mainwing = 0.52;
+            double Cd_mainwing = 0.00855;
+            double A_mainwing = 21.00000;
+
+            double L_mainwing_forward = 0.5 * rho_forward * Math.Pow(v_forward, 2) * A_mainwing * Cl_mainwing;
+            double D_mainwing_forward = 0.5 * rho_forward * Math.Pow(v_forward, 2) * A_mainwing * Cd_mainwing;
+
+
 
 
             /////////////////
@@ -123,67 +129,29 @@ namespace DUAS
 
             double P_req_descent = P_i_descent + P_0_descent;
 
-            double E_descent = P_req_descent * t_descent;
+            double E_descent = P_req_descent * (t_descent / 3600);
+
+
 
             double E_total = E_hover + E_climb + E_forward + E_descent;
 
 
+            Console.WriteLine("T_hover : " + Math.Round(T_hover) + " [N]");
 
+            Console.WriteLine("P_req_hover : " + Math.Round(P_req_hover)/1000 + " [kW]");
+            Console.WriteLine("P_req_climb : " + Math.Round(P_req_climb) / 1000 + " [kW]");
+            Console.WriteLine("P_req_forward : " + Math.Round(P_req_forward) / 1000 + " [kW]");
+            Console.WriteLine("P_req_descent : " + Math.Round(P_req_descent) / 1000 + " [kW]");
 
+            Console.WriteLine("E_hover : " + Math.Round(E_hover)/1000 + " [kWh]");
+            Console.WriteLine("E_climb : " + Math.Round(E_climb) / 1000 + " [kWh]");
+            Console.WriteLine("E_forward : " + Math.Round(E_forward) / 1000 + " [kWh]");
+            Console.WriteLine("E_descent : " + Math.Round(E_descent) / 1000 + " [kWh]");
 
+            Console.WriteLine("E_total : " + Math.Round(E_total) / 1000 + " [kWh]");
 
-
-
-
-            //Console.WriteLine("P_req_hover : " + P_req_hover);
-            //Console.WriteLine("P_req_climb : " + P_req_climb);
-            //Console.WriteLine("P_req_forward : " + P_req_forward);
-            //Console.WriteLine("P_req_descent : " + P_req_descent);
-
-            //Console.WriteLine("E_hover : " + E_hover);
-            //Console.WriteLine("E_climb : " + E_climb);
-            //Console.WriteLine("E_forward : " + E_forward);
-            //Console.WriteLine("E_descent : " + E_descent);
-
-            //Console.WriteLine("E_total : " + E_total);
-
-  
-            //double D_total = 0.0; // 경험식 사용 예정
-
-            //Cd0 = 0.02;                 // 경험식
-
-            //double T_rotor = T_total / N_rotors;
-            //double v_tip = omega * radius[sections.Length - 1];
-
-            //double P_output = D_total * v_infinity;
-
-            //double q = 0.5 * rotor.rho * Math.Pow(v_infinity, 2);
-
-            ///// Mission Analysis ///
-            //////////////////////////
-            //double vc = 3.333333;
-
-            //climb.t = 3 * 60;
-            //climb.P = Calc.Get_P_i(T_rotor, vi + vc) + Calc.Get_P_0(sigma, Cd0, rotor.rho, A_disk, v_tip);  //1174247 W
-            //climb.E = climb.P * climb.t;    //211364466 J
-
-            //cruise.t = 18 * 60;
-            //descent.t = 9 * 60;
-
-            //double vd = 10 / 9;
-
-
-            //descent.P = Calc.Get_P_i(T_rotor, vi - vd) + Calc.Get_P_0(sigma, Cd0, rotor.rho, A_disk, v_tip);
-            //descent.E = descent.P * descent.t;
-
-            //double Energy_total = climb.E + cruise.E + descent.E;
-
-            //Console.WriteLine("climb.P = " + climb.P);
-            //Console.WriteLine("climb.E = " + climb.E);
-            //Console.WriteLine("descent.P = " + descent.P);
-            //Console.WriteLine("descent.E = " + descent.E);
-
-            //double LDmax = 5.440651167;
+            Console.WriteLine("L_mainwing_forward : " + Math.Round(L_mainwing_forward) + "");
+            Console.WriteLine("D_mainwing_forward : " + Math.Round(D_mainwing_forward) + "");
 
         }
     }
