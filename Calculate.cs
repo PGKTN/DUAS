@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,13 +25,18 @@ namespace DUAS
             return 0.455 / (Math.Pow(Math.Log10(Get_Re_L(reynolds, L_avg, M)), 2.58) * Math.Pow((1 + 0.144 * (Math.Pow(M, 2))), 0.65));
         }
 
-        private double Get_Re(double h)
-        { 
-            return Math.Pow(10, 6) * 
-        }
+        //private double Get_Re(double h)
+        //{ 
+        //    return Math.Pow(10, 6) * 
+        //}
         private double Get_Re_L(double reynolds, double L_avg, double M)
         {
             return reynolds * L_avg * M;
+        }
+
+        public double Get_rho(double rho_0, double h)
+        {
+            return rho_0 * Math.Exp(-0.0296 * h / 304.8);
         }
     }
 }
