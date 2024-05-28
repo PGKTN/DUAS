@@ -45,7 +45,9 @@ namespace DUAS
             double span_mainwing = 7;
             double sweep_mainwing = 3.5; //[˚]
             double A_mainwing = (root_mainwing + tip_mainwing) * span_mainwing;
-            double mac_mainwing = ((A_mainwing / 2) / span_mainwing) / 4;
+            double chord_mac_mainwing = (A_mainwing / 2) / span_mainwing;
+
+            double mac_mainwing = chord_mac_mainwing / 4;
 
             double root_htail = 1;
             double tip_htail = 1;
@@ -56,6 +58,12 @@ namespace DUAS
             double Cd0 = 0.03360;
             double S_ref = 97.931721; // [m²]
 
+            double Xloc_mainwing = 1.721;
+            double Xloc_htail = 7.5;
+
+
+
+            
 
 
             ///////////////
@@ -167,9 +175,21 @@ namespace DUAS
 
 
 
-            double C_ht = (A_ht * L_ht) / (A_mainwing * c_mac)
+            double L_htail = (Xloc_htail - Xloc_mainwing) - mac_mainwing + mac_htail;
+            double C_ht = 0.0;
 
+            while (Math.Abs(C_ht - 0.535) > 10e-5)
+            {
+                C_ht = (A_htail * L_htail) / (A_mainwing * chord_mac_mainwing);
+                root_htail = root_htail * 0.999;
+                tip_htail = root_htail;
 
+                A_htail = (root_htail + tip_htail) * span_htail;
+            }
+
+            Console.WriteLine(root_htail) ;
+            Console.WriteLine(A_htail);
+            Console.WriteLine(C_ht);
         }
     }
 }
