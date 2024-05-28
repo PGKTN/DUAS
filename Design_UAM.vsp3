@@ -9,14 +9,14 @@
         <CORX Value="0.000000000000000000e+00" ID="JDXBMEEAKZX"/>
         <CORY Value="0.000000000000000000e+00" ID="FGNZJPVGZQC"/>
         <CORZ Value="0.000000000000000000e+00" ID="RTALBADDWSE"/>
-        <PanX Value="-3.644419908523559570e+00" ID="AWFHPDIFGIA"/>
-        <PanY Value="-1.042433023452758789e+00" ID="ORDMVGTFROZ"/>
-        <RotationX Value="4.649479839738012998e+01" ID="FEKIEFVSJOS"/>
-        <RotationY Value="-5.230608385267247229e+01" ID="ZIOQZPQGEZI"/>
-        <RotationZ Value="-6.326159458325162177e+01" ID="FFYYAGSUFWE"/>
+        <PanX Value="8.845854401588439941e-01" ID="AWFHPDIFGIA"/>
+        <PanY Value="2.679157257080078125e+00" ID="ORDMVGTFROZ"/>
+        <RotationX Value="1.580458304126218927e+01" ID="FEKIEFVSJOS"/>
+        <RotationY Value="2.677989961288708187e+01" ID="ZIOQZPQGEZI"/>
+        <RotationZ Value="4.640180537183040599e+01" ID="FFYYAGSUFWE"/>
         <ViewportX Value="0.000000000000000000e+00" ID="XANYJYESPCT"/>
         <ViewportY Value="0.000000000000000000e+00" ID="HNCRSEIDEAM"/>
-        <Zoom Value="1.183529663830995560e-02" ID="XFROCARTBPU"/>
+        <Zoom Value="1.361059118062257767e-02" ID="XFROCARTBPU"/>
       </AdjustView>
       <AdvLinkSettings>
         <AdvLinkDefNameContainer Value="1.000000000000000000e+00" ID="DJRNHXZSUSI"/>
@@ -2235,7 +2235,7 @@
         </EndCap>
         <Index>
           <ActiveAirfoil Value="1.000000000000000000e+00" ID="PLPYHWRYQHU"/>
-          <ActiveXSec Value="1.000000000000000000e+00" ID="AOKMWLWHSCP"/>
+          <ActiveXSec Value="0.000000000000000000e+00" ID="AOKMWLWHSCP"/>
         </Index>
         <Mass_Props>
           <CGx Value="0.000000000000000000e+00" ID="POAGUZHUGZG"/>
