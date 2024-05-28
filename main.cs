@@ -215,6 +215,8 @@ namespace DUAS
             Console.WriteLine("span_vtail : " + span_vtail);
             Console.WriteLine("A_vtail : " + A_vtail);
             Console.WriteLine("C_vt : " + C_vt);
+
+
         }
     }
 }
