@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DUAS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bd725a3b5535b7935913062e90b91f7de6740e2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+acfbea921bb7d393201929f73525f79ae9761cf6")]
 [assembly: System.Reflection.AssemblyProductAttribute("DUAS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DUAS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

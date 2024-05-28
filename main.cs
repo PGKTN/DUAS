@@ -60,10 +60,11 @@ namespace DUAS
 
             double Xloc_mainwing = 1.721;
             double Xloc_htail = 7.5;
+            double Xloc_vtail = 7.5;
 
 
 
-            
+
 
 
             ///////////////
@@ -187,9 +188,33 @@ namespace DUAS
                 A_htail = (root_htail + tip_htail) * span_htail;
             }
 
-            Console.WriteLine(root_htail) ;
-            Console.WriteLine(A_htail);
-            Console.WriteLine(C_ht);
+            Console.WriteLine("root_htail : " + root_htail);
+            Console.WriteLine("A_htail : " + A_htail);
+            Console.WriteLine("C_ht : " + C_ht);
+
+
+            double root_vtail = root_htail;
+            double tip_vtail = root_htail;
+            double span_vtail = 1.5;
+
+            double A_vtail = (root_vtail + tip_vtail) * span_vtail;
+            double mac_vtail = ((A_vtail / 2) / span_vtail) / 4;
+
+            double L_vtail = (Xloc_vtail - Xloc_mainwing) - mac_mainwing + mac_vtail;
+
+            double C_vt = 0.0;
+
+            while (Math.Abs(C_vt - 0.062) > 10e-5)
+            {
+                C_vt = (A_vtail * L_vtail) / (A_mainwing * span_mainwing);
+                span_vtail = span_vtail * 0.999;
+
+                A_vtail = (root_vtail + tip_vtail) * span_vtail;
+            }
+
+            Console.WriteLine("span_vtail : " + span_vtail);
+            Console.WriteLine("A_vtail : " + A_vtail);
+            Console.WriteLine("C_vt : " + C_vt);
         }
     }
 }
