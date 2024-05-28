@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,19 @@ namespace DUAS
             double rpm = 2000;
             double omega = rpm * (2 * Math.PI) / 60
 ;
+            double root_mainwing = 1.8;
+            double tip_mainwing = 1.2;
+            double span_mainwing = 7;
+            double sweep_mainwing = 3.5; //[˚]
+            double A_mainwing = (root_mainwing + tip_mainwing) * span_mainwing;
+            double mac_mainwing = ((A_mainwing / 2) / span_mainwing) / 4;
+
+            double root_htail = 1;
+            double tip_htail = 1;
+            double span_htail = 2.5;
+            double A_htail = (root_htail + tip_htail) * span_htail;
+            double mac_htail = ((A_htail / 2) / span_htail) / 4;
+
             double Cd0 = 0.03360;
             double S_ref = 97.931721; // [m²]
 
@@ -63,7 +77,7 @@ namespace DUAS
 
             double P_req_hover = P_i_hover + P_0_hover;
 
-            double E_hover = P_req_hover * (t_hover/3600);
+            double E_hover = P_req_hover * (t_hover / 3600);
 
             ///////////////
             /// P_climb ///
@@ -83,7 +97,7 @@ namespace DUAS
 
             double P_req_climb = P_i_climb + P_0_climb;
 
-            double E_climb = P_req_climb * (t_climb/3600);
+            double E_climb = P_req_climb * (t_climb / 3600);
 
 
             /////////////////
@@ -99,11 +113,10 @@ namespace DUAS
 
             double P_req_forward = D_forward * v_forward;
 
-            double E_forward = P_req_forward * (t_forward/3600);
+            double E_forward = P_req_forward * (t_forward / 3600);
 
             double Cl_mainwing = 0.52;
             double Cd_mainwing = 0.00855;
-            double A_mainwing = 21.00000;
 
             double L_mainwing_forward = 0.5 * rho_forward * Math.Pow(v_forward, 2) * A_mainwing * Cl_mainwing;
             double D_mainwing_forward = 0.5 * rho_forward * Math.Pow(v_forward, 2) * A_mainwing * Cd_mainwing;
@@ -131,19 +144,18 @@ namespace DUAS
 
             double E_descent = P_req_descent * (t_descent / 3600);
 
-
-
             double E_total = E_hover + E_climb + E_forward + E_descent;
+
 
 
             Console.WriteLine("T_hover : " + Math.Round(T_hover) + " [N]");
 
-            Console.WriteLine("P_req_hover : " + Math.Round(P_req_hover)/1000 + " [kW]");
+            Console.WriteLine("P_req_hover : " + Math.Round(P_req_hover) / 1000 + " [kW]");
             Console.WriteLine("P_req_climb : " + Math.Round(P_req_climb) / 1000 + " [kW]");
             Console.WriteLine("P_req_forward : " + Math.Round(P_req_forward) / 1000 + " [kW]");
             Console.WriteLine("P_req_descent : " + Math.Round(P_req_descent) / 1000 + " [kW]");
 
-            Console.WriteLine("E_hover : " + Math.Round(E_hover)/1000 + " [kWh]");
+            Console.WriteLine("E_hover : " + Math.Round(E_hover) / 1000 + " [kWh]");
             Console.WriteLine("E_climb : " + Math.Round(E_climb) / 1000 + " [kWh]");
             Console.WriteLine("E_forward : " + Math.Round(E_forward) / 1000 + " [kWh]");
             Console.WriteLine("E_descent : " + Math.Round(E_descent) / 1000 + " [kWh]");
@@ -152,6 +164,11 @@ namespace DUAS
 
             Console.WriteLine("L_mainwing_forward : " + Math.Round(L_mainwing_forward) + "");
             Console.WriteLine("D_mainwing_forward : " + Math.Round(D_mainwing_forward) + "");
+
+
+
+            double C_ht = (A_ht * L_ht) / (A_mainwing * c_mac)
+
 
         }
     }
