@@ -51,7 +51,7 @@ namespace DUAS
 
             double root_htail = 1;
             double tip_htail = 1;
-            double span_htail = 2.5;
+            double span_htail = 2.75;
             double A_htail = (root_htail + tip_htail) * span_htail;
             double mac_htail = ((A_htail / 2) / span_htail) / 4;
 
@@ -179,10 +179,19 @@ namespace DUAS
             double L_htail = (Xloc_htail - Xloc_mainwing) - mac_mainwing + mac_htail;
             double C_ht = 0.0;
 
-            while (Math.Abs(C_ht - 0.535) > 10e-5)
+            while (Math.Abs(C_ht - 0.535) > 10e-6)
             {
                 C_ht = (A_htail * L_htail) / (A_mainwing * chord_mac_mainwing);
-                root_htail = root_htail * 0.999;
+
+                if (root_htail > 0.535)
+                {
+                    root_htail = root_htail * 0.9999;
+                }
+                else
+                {
+                    root_htail = root_htail * 1.0001;
+                }
+
                 tip_htail = root_htail;
 
                 A_htail = (root_htail + tip_htail) * span_htail;
@@ -204,10 +213,18 @@ namespace DUAS
 
             double C_vt = 0.0;
 
-            while (Math.Abs(C_vt - 0.062) > 10e-5)
+            while (Math.Abs(C_vt - 0.062) > 10e-6)
             {
                 C_vt = (A_vtail * L_vtail) / (A_mainwing * span_mainwing);
-                span_vtail = span_vtail * 0.999;
+
+                if (C_vt > 0.062)
+                {
+                    span_vtail = span_vtail * 0.9999;
+                }
+                else
+                {
+                    span_vtail = span_vtail * 1.0001;
+                }
 
                 A_vtail = (root_vtail + tip_vtail) * span_vtail;
             }
