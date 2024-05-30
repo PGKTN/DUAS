@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
-
 
 ///////////////////////////////////////////////////////////
 /// P -> Power, W -> Weight, E -> Energy, V -> Velocity ///
@@ -37,9 +38,8 @@ namespace DUAS
             double rotor_diameter = 3;
             double sigma = 0.177;
             double A_disk = Math.PI * Math.Pow(rotor_diameter / 2, 2);
-            double rpm = 2000;
-            double omega = rpm * (2 * Math.PI) / 60
-;
+            double rpm = 2000;  // 미정
+            double omega = rpm * (2 * Math.PI) / 60;
             double root_mainwing = 1.8;
             double tip_mainwing = 1.2;
             double span_mainwing = 7;
@@ -51,21 +51,16 @@ namespace DUAS
 
             double root_htail = 1;
             double tip_htail = 1;
-            double span_htail = 2.75;
+            double span_htail = 2.5;
             double A_htail = (root_htail + tip_htail) * span_htail;
             double mac_htail = ((A_htail / 2) / span_htail) / 4;
 
-            double Cd0 = 0.03360;
-            double S_ref = 97.931721; // [m²]
-
+            double Cd0 = 0.03008;
+            double S_ref = 21; // [m²]
+            double S_wet = 41.56 + 23.82 + 11.75 + 10.3 + 4.4 + 3.9 + 3.9 + 3.47;
             double Xloc_mainwing = 1.721;
             double Xloc_htail = 7.5;
             double Xloc_vtail = 7.5;
-
-
-
-
-
 
             ///////////////
             /// P_hover ///
@@ -108,7 +103,6 @@ namespace DUAS
 
             double E_climb = P_req_climb * (t_climb / 3600);
 
-
             /////////////////
             /// P_forward ///
             /////////////////
@@ -118,20 +112,17 @@ namespace DUAS
 
             double v_forward = 55.55555556;
 
-            double D_forward = 0.5 * rho_forward * Math.Pow(v_forward, 2) * Cd0 * S_ref;
+            double D_forward = 0.5 * rho_forward * Math.Pow(v_forward, 2) * Cd0 * S_wet;
 
             double P_req_forward = D_forward * v_forward;
 
             double E_forward = P_req_forward * (t_forward / 3600);
 
             double Cl_mainwing = 0.52;
-            double Cd_mainwing = 0.00855;
+            double Cd_mainwing = 0.00821;
 
             double L_mainwing_forward = 0.5 * rho_forward * Math.Pow(v_forward, 2) * A_mainwing * Cl_mainwing;
             double D_mainwing_forward = 0.5 * rho_forward * Math.Pow(v_forward, 2) * A_mainwing * Cd_mainwing;
-
-
-
 
             /////////////////
             /// P_descent ///
@@ -155,8 +146,6 @@ namespace DUAS
 
             double E_total = E_hover + E_climb + E_forward + E_descent;
 
-
-
             Console.WriteLine("T_hover : " + Math.Round(T_hover) + " [N]");
 
             Console.WriteLine("P_req_hover : " + Math.Round(P_req_hover) / 1000 + " [kW]");
@@ -171,26 +160,24 @@ namespace DUAS
 
             Console.WriteLine("E_total : " + Math.Round(E_total) / 1000 + " [kWh]");
 
-            Console.WriteLine("L_mainwing_forward : " + Math.Round(L_mainwing_forward) + "");
-            Console.WriteLine("D_mainwing_forward : " + Math.Round(D_mainwing_forward) + "");
+            Console.WriteLine("forward flight L_req : " + W_0 * 9.81 + " [N]");
+            Console.WriteLine("L_mainwing_forward : " + Math.Round(L_mainwing_forward) + " [N]");
+            Console.WriteLine("D_mainwing_forward : " + Math.Round(D_mainwing_forward) + " [N]");
 
-
-
+            //////////////////////////
+            /// 꼬리날개 면적 구하기 ///
+            //////////////////////////
             double L_htail = (Xloc_htail - Xloc_mainwing) - mac_mainwing + mac_htail;
             double C_ht = 0.0;
 
-            while (Math.Abs(C_ht - 0.535) > 10e-6)
+            while (Math.Abs(C_ht - 0.900) > 10e-6)
             {
                 C_ht = (A_htail * L_htail) / (A_mainwing * chord_mac_mainwing);
 
-                if (root_htail > 0.535)
-                {
+                if (C_ht > 0.900)
                     root_htail = root_htail * 0.9999;
-                }
                 else
-                {
                     root_htail = root_htail * 1.0001;
-                }
 
                 tip_htail = root_htail;
 
@@ -200,7 +187,6 @@ namespace DUAS
             Console.WriteLine("root_htail : " + root_htail);
             Console.WriteLine("A_htail : " + A_htail);
             Console.WriteLine("C_ht : " + C_ht);
-
 
             double root_vtail = root_htail;
             double tip_vtail = root_htail;
@@ -213,18 +199,14 @@ namespace DUAS
 
             double C_vt = 0.0;
 
-            while (Math.Abs(C_vt - 0.062) > 10e-6)
+            while (Math.Abs(C_vt - 0.080) > 10e-6)
             {
                 C_vt = (A_vtail * L_vtail) / (A_mainwing * span_mainwing);
 
-                if (C_vt > 0.062)
-                {
+                if (C_vt > 0.080)
                     span_vtail = span_vtail * 0.9999;
-                }
                 else
-                {
                     span_vtail = span_vtail * 1.0001;
-                }
 
                 A_vtail = (root_vtail + tip_vtail) * span_vtail;
             }
@@ -232,8 +214,6 @@ namespace DUAS
             Console.WriteLine("span_vtail : " + span_vtail);
             Console.WriteLine("A_vtail : " + A_vtail);
             Console.WriteLine("C_vt : " + C_vt);
-
-
         }
     }
 }

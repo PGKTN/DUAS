@@ -4,13 +4,13 @@
 11616 Total Num Tris
 
 Theo_Area   Wet_Area   Theo_Vol    Wet_Vol  Name
-   25.083     23.822      8.052      7.946  FuselageGeom   
+   25.083     23.822      8.052      7.947  FuselageGeom   
    43.184     41.560      2.600      2.600  WingGeom       
     5.940      5.877      0.306      0.306  PodGeom        
     5.940      5.877      0.306      0.306  PodGeom        
-    3.176      3.092      0.101      0.101  WingGeom       
-    3.176      3.092      0.101      0.101  WingGeom       
-   10.272     10.174      0.337      0.337  WingGeom       
+    2.244      2.199      0.070      0.070  WingGeom       
+    2.244      2.199      0.070      0.070  WingGeom       
+   10.301     10.301      0.339      0.339  WingGeom       
     0.650      0.650      0.006      0.006  PropGeom       
     0.650      0.650      0.006      0.006  PropGeom       
     0.650      0.650      0.006      0.006  PropGeom       
@@ -27,7 +27,7 @@ Theo_Area   Wet_Area   Theo_Vol    Wet_Vol  Name
     1.155      1.155      0.014      0.014  PropGeom       
     1.155      1.155      0.014      0.014  PropGeom       
 -------------------------------------------------
-  108.037    104.757     11.919     11.812  Totals         
+  106.201    103.099     11.859     11.753  Totals         
 
 Tag_Theo_Area   Tag_Wet_Area    Tag_Name
        25.083         23.822    FuselageGeom_S_Surf0
@@ -35,10 +35,10 @@ Tag_Theo_Area   Tag_Wet_Area    Tag_Name
        21.592         20.780    WingGeom_S_Surf1
         5.940          5.877    PodGeom_S_Surf0
         5.940          5.877    PodGeom_S_Surf1
-        3.176          3.092    WingGeom_S_Surf0
-        3.176          3.092    WingGeom_S_Surf1
-        5.136          5.087    WingGeom_S_Surf0
-        5.136          5.087    WingGeom_S_Surf1
+        2.244          2.199    WingGeom_S_Surf0
+        2.244          2.199    WingGeom_S_Surf1
+        5.150          5.150    WingGeom_S_Surf0
+        5.150          5.150    WingGeom_S_Surf1
         0.650          0.650    PropGeom_S_Surf0
         0.650          0.650    PropGeom_S_Surf1
         0.650          0.650    PropGeom_S_Surf2
