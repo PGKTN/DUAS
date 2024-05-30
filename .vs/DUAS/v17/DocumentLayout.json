@@ -7,11 +7,11 @@
       "RelativeMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|c:\\duas\\calculate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|C:\\DUAS\\calculate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|solutionrelative:calculate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|c:\\duas\\ini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|C:\\DUAS\\ini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E78ACEF-D63E-4613-8570-4CB228557673}|DUAS.csproj|solutionrelative:ini.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,8 +22,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -44,7 +52,7 @@
               "RelativeDocumentMoniker": "main.cs",
               "ToolTip": "C:\\DUAS\\main.cs",
               "RelativeToolTip": "main.cs",
-              "ViewState": "AQIAAMQAAAAAAAAAAAAywNYAAAAAAAAA",
+              "ViewState": "AQIAAD0AAAAAAAAAAADwv00AAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-21T15:21:44.381Z",
               "EditorCaption": ""
@@ -57,9 +65,10 @@
               "RelativeDocumentMoniker": "Calculate.cs",
               "ToolTip": "C:\\DUAS\\Calculate.cs",
               "RelativeToolTip": "Calculate.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBEAAAAdAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwBEAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T13:52:46.068Z"
+              "WhenOpened": "2024-05-22T13:52:46.068Z",
+              "EditorCaption": ""
             }
           ]
         }
